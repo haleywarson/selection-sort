@@ -1,5 +1,24 @@
 function selectionSort(arr) {
-  // type your code here
+  for (let i = 0; i < arr.length - 1; i++) {
+    // stop one short of full array length
+    // find smallest number in subarray
+    let minIndex = i;
+
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[j] < arr[minIndex]) {
+        minIndex = j;
+      }
+    }
+
+    if (minIndex != i) {
+      // swap elements
+      let temp = arr[i];
+      arr[i] = arr[minIndex];
+      arr[minIndex] = temp;
+    }
+  }
+
+  return arr;
 }
 
 if (require.main === module) {
